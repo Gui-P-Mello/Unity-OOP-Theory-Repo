@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private GameObject rangedEnemyPrefab;
+    [SerializeField] private GameObject enemySpawnPrefab;
+    [SerializeField] private GameObject rangedEnemySpawnPrefab;
 
     private float spawnRange = 47;
     private float startDelay = 0.5f;
@@ -38,11 +38,11 @@ public class EnemySpawnManager : MonoBehaviour
             }
             if(i % 2 != 0)
             {
-                Instantiate(enemyPrefab, spawnPos, enemyPrefab.transform.rotation);
+                Instantiate(enemySpawnPrefab, spawnPos, enemySpawnPrefab.transform.rotation);
             }
             else
             {
-                Instantiate(rangedEnemyPrefab, spawnPos, rangedEnemyPrefab.transform.rotation);
+                Instantiate(rangedEnemySpawnPrefab, spawnPos, rangedEnemySpawnPrefab.transform.rotation);
             }
 
         }        

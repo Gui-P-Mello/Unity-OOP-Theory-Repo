@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private Camera mainCamera;
     private Rigidbody playerRb;
+    private SceneLoader sceneLoader;
     private Vector3 moveInput;
     private Vector3 mousePos;
     private Vector3 moveSpeed;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        sceneLoader = SceneLoader.Instance;
     }
     void Start()
     {
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             SceneManager.LoadScene(0);
+            //sceneLoader.LoadTitleScreen();
         }
     }
 
@@ -96,6 +99,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player got hit!");
             SceneManager.LoadScene(0);
+            //sceneLoader.LoadTitleScreen();
         }
     }
 }

@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreen : MonoBehaviour
 {
-   public void Play()
+    [SerializeField] GameObject titleScreen;
+    public Animator transition;
+
+    public float transitionTime = 1f;
+    public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -14,6 +18,17 @@ public class TitleScreen : MonoBehaviour
     {
         Debug.Log("QUIT!");
         Application.Quit();
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    { 
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+        
+        Debug.Log("Play!");
+
+        SceneManager.LoadScene(levelIndex);
     }
    
 }
