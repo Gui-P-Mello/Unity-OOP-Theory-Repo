@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class RangedEnemy : Enemy
 {
     [SerializeField] GameObject enemyProjectilePrefab;
@@ -10,6 +11,7 @@ public class RangedEnemy : Enemy
     private bool canShoot;
     private float shotCooldownTime = 0.30f;
 
+    // ENCAPSULATION
     public static Enemy Instance { get; private set; }
     
     // Start is called before the first frame update
@@ -30,6 +32,7 @@ public class RangedEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
+        // ABSTRACTION
         AimAtPlayer();
         ChasePlayer();
         Shoot();
@@ -50,7 +53,7 @@ public class RangedEnemy : Enemy
         yield return new WaitForSeconds(shotCooldownTime);
         canShoot = true;
     }
-
+    // POLYMORPHISM
     public override void Die()
     {
         SelfDestruction();
